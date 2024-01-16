@@ -17,7 +17,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "*",
+    origin: "https://talkblue-client-production.up.railway.app",
   },
 });
 
@@ -29,9 +29,9 @@ app.use("/api/", messageRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/chat", chatRoutes);
-api.get('/', (req,res) => {
-	res.send("Hello world")
-})
+api.get("/", (req, res) => {
+  res.send("Hello world");
+});
 
 io.on("connection", (socket) => {
   socket.on("new-message", (data) => {
@@ -46,12 +46,10 @@ io.on("connection", (socket) => {
     socket.to(room).emit("SomeOneTyping");
   });
 
-	socket.on('userDeletedMessage', (room) => {
-		socket.to(room._id).emit("message-deleted")
-	})
+  socket.on("userDeletedMessage", (room) => {
+    socket.to(room._id).emit("message-deleted");
+  });
 });
-
-
 
 mongoose.connect(process.env.MONGO_URI);
 
