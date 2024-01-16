@@ -17,7 +17,6 @@ const server = http.createServer(app);
 const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
-    methods: ["GET", "POST"],
     credentials: true,
     origin: "https://talkblue-client-production.up.railway.app",
   },
