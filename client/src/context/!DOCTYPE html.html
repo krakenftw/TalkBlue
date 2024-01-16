@@ -1,0 +1,249 @@
+<html>
+
+<head>
+    <title>Layout convert Media Query</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="col-lg-2 logo"><img
+                    src="https://imgs.search.brave.com/vLe4sl9cMWCZKDkIbkp3zWho2ByxdYfGfCQUUjZe0Sk/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuZnJlZWltYWdl/cy5jb20vaW1hZ2Vz/L3ByZXZpZXdzLzU4/MS90ZWxlcGhvbmUt/bG9nby0xNDU0NzI4/LmpwZw" /></div>
+            <div class="col-lg-8 nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <style>
+                *{
+    padding: 0;
+    margin: 0;
+}
+
+@keyframes background-change {
+    0%{
+        background-color: aliceblue;
+    }
+    25%{
+        background-color: green;
+    }
+    50%{
+        background-color: yellowgreen;
+    }
+    75%{
+        background-color: blueviolet;
+    }
+    100%{
+        background-color: chartreuse;
+    }
+}
+
+@media screen and (min-width:1080px)
+{
+    .col-lg-1{
+        width:108px;
+        float: left;
+		border:2px;
+    }
+    .col-lg-2{
+        width:216px;
+        float: left;
+		border:2px;
+    }
+    .col-lg-3{
+        width:324px;
+        float: left;
+		border:2px;
+    }
+    .col-lg-4{
+        width:432px;
+        float: left;
+		border:2px;
+    }
+    .col-lg-5{
+        width:540px;
+        float: left;
+		border:2px;
+    }
+    .col-lg-6{
+        width:648px;
+        float: left;
+		border:2px;
+    }
+    .col-lg-7{
+        width:756px;
+        float: left;
+		border:2px;
+    }
+    .col-lg-8{
+        width:864px;
+        float: left;
+		border:2px;
+    }
+    .col-lg-9{
+        width:972px;
+        float: left;
+		border:2px;
+    }
+    .col-lg-10{
+        width:1080px;
+        float: left;
+		border:2px;
+    }
+    
+    .container{
+        width: 1080px;
+        margin:0 auto ;
+        height: auto;
+        min-height: 500px;
+        background-color:#FFFccc;
+    }
+	.clear{
+		clear:both;
+	}
+
+    .logo{
+        background-color: none;
+		height:168px;
+
+    }
+	.logo img {
+		width:216px;
+		height:168px;
+	}
+    .nav{
+    }
+	.nav ul li{
+		display:inline-block;
+		padding:20px;
+		line-height:30px;
+		text-decoration:none;
+		color:black;
+	}
+	.banner{
+		height:300px;
+	}
+	.banner img{
+		width:1080px;
+		height:300px;
+	}
+	.row3{
+		height:300px;
+		background-color:cyan;
+	}
+	.content p{
+		text-align:justify;
+	}
+	.testimonial{
+		height:300px;
+		background:pink;
+	}
+	.testimonial img{
+		width:50px;
+		height:50px;
+		margin-left:100px;
+	}
+	.testimonial p{
+		height:230px;
+		font-size:24px;
+	}
+	.testimonial div{
+		bottom:0;
+		font-weight:bold;
+		font-size:20px;
+		text-align:right;
+	}
+	.advertise img{
+		width:100%;
+		height:100%;
+	}
+	.home_page{
+		min-height:100px;
+		background:grey;
+		color:white;
+		font-size:20px;
+		font-family:Times New Roman;
+	}
+	.footer{
+		animation: background-change 10s ease-in-out infinite;
+		height:50px;
+	}
+	.footer h1{
+        font-size: 30px;
+        text-align: center;
+    }
+	
+		
+}
+            </style>
+        </header>
+        <!--banner start -->
+        <div class="clear">
+            <div class="col-lg-10 banner">
+                <img src="https://imgs.search.brave.com/dZ4nQoivbiq3mTvWZ4v-SWqlOjdQNT7X_WG3q2EDAu0/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4u/dmVjdG9yc3RvY2su/Y29tL2kvcHJldmll/dy0xeC80MS8wOC9s/ZWF2ZXMtY2lyY2xl/LXdpdGgtYmxhY2st/YmFja2dyb3VuZC1s/b2dvLWNvbmNlcHQt/dmVjdG9yLTIwNDg0/MTA4LmpwZw">
+            </div>
+        </div>
+        <!-- banner end -->
+        <!--3 section start (content, testimonial,advt)-->
+        <div class="clear">
+            <div class="row3">
+                <div class="col-lg-3">
+                    <p><b> Responsive Web Design </b>
+                    <p> Responsive Wed Design is the approach that suggest that
+                        design and develpoment should respond to the users behaviour
+                        and enviornmental based on screen size, area.
+                    </p>
+                </div>
+                <div class="col-lg-4 testimonial">
+                    <img
+                        src="https://o.remove.bg/downloads/d3eff54e-25b9-4054-84c3-76400e66f92c/image-removebg-preview.png" />
+                    <p>
+                        Nice and decent candidate with good attitude.
+                    </p>
+                    <div>Galav Mongia</div>
+                </div>
+                <div class="col-lg-3 advertise"><img
+                        src="https://webneel.com/daily/sites/default/files/images/daily/03-2016/18-animal-advertisment-print-ads.jpg"></div>
+            </div>
+            <!--3 section end(content,testimonial,advt) -->
+
+            <!--home page content start-->
+            <div class="home_page">
+                <p>
+                    Planning, creating, and publishing website homepage content is no walk in the park. In fact, it
+                    presents the most difficult—and important—decisions a digital marketer must make.
+                    <br>
+                    <br>
+                    Everyone seems to want to know the exact formula for getting it right. But no such formula exists.
+                    So the process of getting homepage content published often paralyzes marketers big and small,
+                    experienced and novice.
+                    <br>
+                    I have the “What should I put on my homepage?” conversation with clients nearly every day. The
+                    answer could be:
+                    <br><br>
+                    (a) Content that best positions your company as the solution to a specific problem
+                    <br>
+                    (b) Content prospective buyers are looking for
+                    <br>
+                    (c) Both of the above
+                    <br><br>
+                    Clearly, (c) is the optimum answer. If your website’s homepage is doing its job effectively it
+                    guides visitors one step deeper into your website. Better yet, it guides the right visitors to the
+                    next page, or the content they seek.
+                    <br><br>
+                    See, your homepage, your content, and your marketing in general, shouldn’t aim to engage everyone.
+                    Though it may seem counter-intuitive, it should deflect the wrong people. Your conversion depends on
+                    engaging the right people, right?
+                </p>
+                <div>
+                    <div class="footer">
+
+                    </div>
+</body>
+
+</html>
