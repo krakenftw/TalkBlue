@@ -16,7 +16,6 @@ import { useChatState } from "../../context/ChatProvider";
 import {
   DeleteIcon,
   EditIcon,
-  MenuIcon,
   MoreVertical,
   TrashIcon,
 } from "lucide-react";

@@ -22,7 +22,7 @@ const io = new Server(server, {
     origin:
       process.env.NODE_ENV === "production"
         ? "https://talkblue-client-production.up.railway.app"
-        : "http://localhost:4173",
+        : "http://localhost:5173",
 
     methods: ["GET", "POST"],
   },
@@ -34,7 +34,8 @@ app.use(
     origin:
       process.env.NODE_ENV === "production"
         ? "https://talkblue-client-production.up.railway.app"
-        : "http://localhost:4173",
+        : "http://localhost:5173",
+    credentials: true,
   }),
 );
 
@@ -44,6 +45,7 @@ app.use("/api/", messageRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/chat", chatRoutes);
+
 app.get("/", (req, res) => {
   res.send("Hello world");
 });
