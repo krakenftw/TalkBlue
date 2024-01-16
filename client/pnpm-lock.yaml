@@ -32,9 +32,6 @@ dependencies:
   body-parser:
     specifier: ^1.20.2
     version: 1.20.2
-  dotenv:
-    specifier: ^16.3.1
-    version: 16.3.1
   framer-motion:
     specifier: ^10.15.1
     version: 10.15.1(react-dom@18.2.0)(react@18.2.0)
@@ -2856,11 +2853,6 @@ packages:
     dependencies:
       no-case: 3.0.4
       tslib: 2.6.1
-    dev: false
-
-  /dotenv@16.3.1:
-    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
-    engines: {node: '>=12'}
     dev: false
 
   /ee-first@1.1.1:
