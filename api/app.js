@@ -19,15 +19,22 @@ const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
     credentials: true,
-    origin: "https://talkblue-client-production.up.railway.app",
-    methods: ["GET", "POST"]
+    origin:
+      process.env.NODE_ENV === "production"
+        ? "https://talkblue-client-production.up.railway.app"
+        : "http://localhost:4173",
+
+    methods: ["GET", "POST"],
   },
   allowEIO3: true,
 });
 
 app.use(
   cors({
-    origin: "https://talkblue-client-production.up.railway.app",
+    origin:
+      process.env.NODE_ENV === "production"
+        ? "https://talkblue-client-production.up.railway.app"
+        : "http://localhost:4173",
   }),
 );
 
@@ -37,7 +44,7 @@ app.use("/api/", messageRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/chat", chatRoutes);
-api.get("/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Hello world");
 });
 
