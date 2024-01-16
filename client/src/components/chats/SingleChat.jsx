@@ -9,12 +9,12 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 import { Send } from "lucide-react";
-import axios from "../axios.js";
 import { useChatState } from "../../context/ChatProvider";
 import EachMessage from "./EachMessage";
 import { LeapFrog } from "@uiball/loaders";
 
 import { socket } from "../../socket";
+import { axios } from "../../axios";
 
 function SingleChat() {
   const { selectedChat, user } = useChatState();
@@ -47,7 +47,7 @@ function SingleChat() {
           content: content,
           chatId: selectedChat._id,
         },
-        config
+        config,
       )
       .then((res) => {
         socket.emit("new-message", res.data);
@@ -108,14 +108,12 @@ function SingleChat() {
   return (
     <Box
       display={"flex"}
-      w='100%'
-      h='90%'
+      w="100%"
+      h="90%"
       flexDir={"column"}
       justifyContent={"space-between"}
     >
-      {loading && (
-        <Spinner alignSelf={"center"} margin={"auto"} size={"xl"} />
-      )}
+      {loading && <Spinner alignSelf={"center"} margin={"auto"} size={"xl"} />}
       <Box overflowY={"auto"} padding={"10px 10px"}>
         {messages &&
           messages.map((each) => (
@@ -136,14 +134,14 @@ function SingleChat() {
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
-        p='10px'
+        p="10px"
       >
         <Input
           width={"92%"}
           border={"1px solid black"}
           borderBottomEndRadius={"0px"}
           borderTopEndRadius={"0px"}
-          placeholder='Dont Curse!'
+          placeholder="Dont Curse!"
           value={content}
           onChange={(e) => {
             socket.emit("userTyping", selectedChat._id);
