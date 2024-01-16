@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const server = http.createServer(app);
+
 const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
@@ -27,7 +28,6 @@ const io = new Server(server, {
 app.use(
   cors({
     origin: "https://talkblue-client-production.up.railway.app",
-    methods: ["GET", "POST"],
   }),
 );
 
