@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: import.meta.env.API_ENDPOINT,
+  baseURL: import.meta.env.VITE_API_ENDPOINT,
 	withCredentials: true
 });
