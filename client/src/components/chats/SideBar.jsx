@@ -31,10 +31,10 @@ import {
 import { useChatState } from "../../context/ChatProvider";
 import { useNavigate } from "react-router-dom";
 import ProfileModal from "../misc/ProfileModal";
-import axios from "../axios.js";
 import Loading from "../misc/Loading";
 import UserListSystem from "./UserListSystem";
 import { ArrowDown, Bell, Search } from "lucide-react";
+import { axios } from "../../axios";
 
 function SideBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -110,28 +110,24 @@ function SideBar() {
   return (
     <div>
       <Box
-        display='flex'
-        justifyContent='space-between'
+        display="flex"
+        justifyContent="space-between"
         bg={"white"}
-        alignItems='center'
-        w='100%'
-        p='5px 10px'
+        alignItems="center"
+        w="100%"
+        p="5px 10px"
       >
-        <Tooltip
-          label='Search user to chats'
-          hasArrow
-          placement='bottom-end'
-        >
-          <Button variant='ghost' ref={btnRef} onClick={onOpen}>
+        <Tooltip label="Search user to chats" hasArrow placement="bottom-end">
+          <Button variant="ghost" ref={btnRef} onClick={onOpen}>
             <Search />
-            <Text d={{ base: "none", md: "flex" }} px='4'>
+            <Text d={{ base: "none", md: "flex" }} px="4">
               Search User
             </Text>
           </Button>
         </Tooltip>
-        <Box display='flex'>
+        <Box display="flex">
           <Menu>
-            <MenuButton w='30px' alignItems='center'>
+            <MenuButton w="30px" alignItems="center">
               <Text>
                 <Bell />
               </Text>
@@ -140,8 +136,8 @@ function SideBar() {
           <Menu>
             <MenuButton as={Button} rightIcon={<ArrowDown />}>
               <Avatar
-                w='40px'
-                h='40px'
+                w="40px"
+                h="40px"
                 name={user.name}
                 src={user.profilePic}
               />
@@ -158,7 +154,7 @@ function SideBar() {
       </Box>
       <Drawer
         isOpen={isOpen}
-        placement='left'
+        placement="left"
         onClose={onClose}
         finalFocusRef={btnRef}
       >
@@ -168,12 +164,12 @@ function SideBar() {
           <DrawerHeader>Search User</DrawerHeader>
 
           <DrawerBody>
-            <Box display='flex'>
+            <Box display="flex">
               <Input
                 onChange={(e) => {
                   SetSearch(e.target.value);
                 }}
-                placeholder='Type here...'
+                placeholder="Type here..."
               />
               <Button onClick={handleUserSearch}>Search</Button>
             </Box>
@@ -195,7 +191,7 @@ function SideBar() {
           </DrawerBody>
 
           <DrawerFooter>
-            <Button variant='outline' mr={3} onClick={onClose}>
+            <Button variant="outline" mr={3} onClick={onClose}>
               Cancel
             </Button>
           </DrawerFooter>
@@ -214,7 +210,7 @@ function SideBar() {
           alignItems={"center"}
           justifyContent={"center"}
         >
-          <Spinner color='white' size={"xl"} />
+          <Spinner color="white" size={"xl"} />
         </Box>
       )}
     </div>
