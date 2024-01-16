@@ -2,16 +2,15 @@ import {
   Box,
   Button,
   Stack,
-  Text,
   useDisclosure,
   useToast,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useChatState } from "../../context/ChatProvider";
-import axios from "../axios.js";
 import Loading from "../misc/Loading";
 import ChatCard from "./ChatCard";
 import CreateGroupModal from "./CreateGroupModal";
+import { axios } from "../../axios.js";
 
 function MyChats() {
   const { isOpen, onOpen, onClose } = useDisclosure();

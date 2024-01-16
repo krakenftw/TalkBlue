@@ -17,11 +17,11 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useChatState } from "../../context/ChatProvider";
-import axios from "../axios.js";
 import UserListSystem from "./UserListSystem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
+import { axios } from "../../axios";
 function CreateGroupModal({ onOpen, isOpen, onClose }) {
   const [groupChatName, setGroupChatName] = useState();
   const [groupUsers, setGroupUsers] = useState([]);
@@ -59,9 +59,7 @@ function CreateGroupModal({ onOpen, isOpen, onClose }) {
   }
 
   const handleUserRemoveList = (userIdToRemove) => {
-    setGroupUsers(
-      groupUsers.filter((item) => item._id !== userIdToRemove)
-    );
+    setGroupUsers(groupUsers.filter((item) => item._id !== userIdToRemove));
   };
 
   const handleGroupCreate = () => {
@@ -82,12 +80,10 @@ function CreateGroupModal({ onOpen, isOpen, onClose }) {
           name: groupChatName,
           users: groupUsers,
         },
-        config
+        config,
       )
       .then((res) => {
-        setChats((chats) =>
-          chats ? [...chats, res.data] : [res.data]
-        );
+        setChats((chats) => (chats ? [...chats, res.data] : [res.data]));
         setSelectedChat(res.data);
         onClose();
       })
@@ -105,18 +101,15 @@ function CreateGroupModal({ onOpen, isOpen, onClose }) {
             onChange={(e) => {
               setGroupChatName(e.target.value);
             }}
-            placeholder='Chat Name'
+            placeholder="Chat Name"
           />
           <Text>Users:</Text>
-          <Input
-            onChange={handleUserSearch}
-            placeholder='Add users'
-          />
+          <Input onChange={handleUserSearch} placeholder="Add users" />
           <Box>
             {groupUsers?.map((each) => (
               <Badge
-                m='3px'
-                colorScheme='green'
+                m="3px"
+                colorScheme="green"
                 key={each._id}
                 onClick={() => {
                   handleUserRemoveList(each._id);
@@ -126,7 +119,7 @@ function CreateGroupModal({ onOpen, isOpen, onClose }) {
               </Badge>
             ))}
           </Box>
-          <Stack overflow='scroll' maxHeight='40vh'>
+          <Stack overflow="scroll" maxHeight="40vh">
             {loading
               ? "Loading..."
               : searchResult?.map((each) => (
@@ -145,10 +138,10 @@ function CreateGroupModal({ onOpen, isOpen, onClose }) {
                     key={each._id}
                   >
                     <Stack
-                      display='flex'
-                      flexDirection='row'
-                      p='5px'
-                      borderRadius='10px'
+                      display="flex"
+                      flexDirection="row"
+                      p="5px"
+                      borderRadius="10px"
                       _hover={{
                         backgroundColor: "teal",
                         color: "white",
@@ -157,16 +150,16 @@ function CreateGroupModal({ onOpen, isOpen, onClose }) {
                       <Avatar
                         src={each.profilePic}
                         name={each.name}
-                        margin='0px 5px'
+                        margin="0px 5px"
                       />
                       <Box>
-                        <Text fontSize='sm'>
+                        <Text fontSize="sm">
                           <b>UserName : </b> {each.username}
                         </Text>
-                        <Text fontSize='sm'>
+                        <Text fontSize="sm">
                           <b>Name : </b> {each.name}
                         </Text>
-                        <Text fontSize='sm'>
+                        <Text fontSize="sm">
                           <b>Email :</b> {each.email}
                         </Text>
                       </Box>
@@ -177,10 +170,10 @@ function CreateGroupModal({ onOpen, isOpen, onClose }) {
         </ModalBody>
 
         <ModalFooter>
-          <Button variant='ghost' mr={3} onClick={onClose}>
+          <Button variant="ghost" mr={3} onClick={onClose}>
             Cancel
           </Button>
-          <Button colorScheme='green' onClick={handleGroupCreate}>
+          <Button colorScheme="green" onClick={handleGroupCreate}>
             Create
           </Button>
         </ModalFooter>

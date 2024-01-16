@@ -20,8 +20,9 @@ import {
   MoreVertical,
   TrashIcon,
 } from "lucide-react";
-import axios from "../axios.js";
 import { socket } from "../../socket";
+
+import { axios } from "../../axios";
 
 function EachMessage({ message, setMessages }) {
   const { user } = useChatState();
@@ -84,19 +85,19 @@ function EachMessage({ message, setMessages }) {
                   <Stack>
                     <Button
                       onClick={handleMessageDelete}
-                      size='sm'
+                      size="sm"
                       leftIcon={<TrashIcon />}
-                      color='red.400'
-                      variant='ghost'
+                      color="red.400"
+                      variant="ghost"
                     >
                       Delete
                     </Button>
                     <Button
                       onClick={handleEditMessage}
-                      size='sm'
+                      size="sm"
                       leftIcon={<EditIcon />}
-                      color='blue.400'
-                      variant='ghost'
+                      color="blue.400"
+                      variant="ghost"
                     >
                       Edit
                     </Button>

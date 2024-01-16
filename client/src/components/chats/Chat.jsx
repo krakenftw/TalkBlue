@@ -5,7 +5,6 @@ import MyChats from "./MyChats.jsx";
 import ChatBox from "./ChatBox.jsx";
 import SideBar from "./SideBar.jsx";
 import { socket } from "../../socket.js";
-
 function Chat() {
   const [isConnected, setIsConnected] = useState(socket.connected);
 
