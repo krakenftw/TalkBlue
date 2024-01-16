@@ -19,7 +19,9 @@ const io = new Server(server, {
   cors: {
     credentials: true,
     origin: "https://talkblue-client-production.up.railway.app",
+    methods: ["GET", "POST"]
   },
+  allowEIO3: true,
 });
 
 app.use(
