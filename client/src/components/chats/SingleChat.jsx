@@ -14,7 +14,7 @@ import EachMessage from "./EachMessage";
 import { LeapFrog } from "@uiball/loaders";
 
 import { socket } from "../../socket";
-import { axios } from "../../axios";
+import axios from "../../axios";
 
 function SingleChat() {
   const { selectedChat, user } = useChatState();
@@ -47,7 +47,7 @@ function SingleChat() {
           content: content,
           chatId: selectedChat._id,
         },
-        config,
+        config
       )
       .then((res) => {
         socket.emit("new-message", res.data);

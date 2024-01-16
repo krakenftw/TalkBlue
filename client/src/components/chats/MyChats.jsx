@@ -10,7 +10,7 @@ import { useChatState } from "../../context/ChatProvider";
 import Loading from "../misc/Loading";
 import ChatCard from "./ChatCard";
 import CreateGroupModal from "./CreateGroupModal";
-import { axios } from "../../axios.js";
+import axios  from "../../axios.js";
 
 function MyChats() {
   const { isOpen, onOpen, onClose } = useDisclosure();

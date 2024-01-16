@@ -9,7 +9,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { axios } from "../axios";
+import axios from "../axios";
 const Singup = () => {
   const [show, setShow] = useState(false);
   const [username, setUsername] = useState("");

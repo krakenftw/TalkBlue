@@ -1,6 +1,7 @@
 import "dotenv/config";
-import { axios as baseAxios } from "axios";
+import axios from 'axios'
 
-export const axios = baseAxios.create({
+export default axios.create({
   baseURL: process.env.API_ENDPOINT,
-});
+})
+

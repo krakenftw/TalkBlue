@@ -21,7 +21,7 @@ import UserListSystem from "./UserListSystem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-import { axios } from "../../axios";
+import axios from "../../axios";
 function CreateGroupModal({ onOpen, isOpen, onClose }) {
   const [groupChatName, setGroupChatName] = useState();
   const [groupUsers, setGroupUsers] = useState([]);
@@ -80,7 +80,7 @@ function CreateGroupModal({ onOpen, isOpen, onClose }) {
           name: groupChatName,
           users: groupUsers,
         },
-        config,
+        config
       )
       .then((res) => {
         setChats((chats) => (chats ? [...chats, res.data] : [res.data]));

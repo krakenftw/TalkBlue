@@ -34,7 +34,7 @@ import ProfileModal from "../misc/ProfileModal";
 import Loading from "../misc/Loading";
 import UserListSystem from "./UserListSystem";
 import { ArrowDown, Bell, Search } from "lucide-react";
-import { axios } from "../../axios";
+import axios from "../../axios";
 
 function SideBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();

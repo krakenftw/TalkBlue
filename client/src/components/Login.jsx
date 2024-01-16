@@ -2,7 +2,7 @@ import { Box, Button, Input, Text, useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useChatState } from "../context/ChatProvider";
-import { axios } from "../axios";
+import axios from "../axios";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
