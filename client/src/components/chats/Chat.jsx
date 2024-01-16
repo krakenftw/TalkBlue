@@ -1,4 +1,4 @@
-import { Box, Input } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useChatState } from "../../context/ChatProvider";
 import MyChats from "./MyChats.jsx";
@@ -8,7 +8,6 @@ import { socket } from "../../socket.js";
 
 function Chat() {
   const [isConnected, setIsConnected] = useState(socket.connected);
-  const [fooEvents, setFooEvents] = useState([]);
 
   useEffect(() => {
     function onConnect() {
@@ -19,17 +18,11 @@ function Chat() {
       setIsConnected(false);
     }
 
-    function onFooEvent(value) {
-      setFooEvents((previous) => [...previous, value]);
-    }
-
     socket.on("connect", onConnect);
     socket.on("disconnect", onDisconnect);
-    socket.on("foo", onFooEvent);
     return () => {
       socket.off("connect", onConnect);
       socket.off("disconnect", onDisconnect);
-      socket.off("foo", onFooEvent);
     };
   }, []);
   const { user } = useChatState();

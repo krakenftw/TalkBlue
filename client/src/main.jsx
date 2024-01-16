@@ -17,9 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="/homepage" element={<Homepage />} />
             <Route path="/chats" element={<Chat />} />
             <Route path="/auth" element={<App />} />
-            <Route path="aboutus" element={<div>This is about us page</div>} />
-            <Route path="feature" element={<div>This is features page</div>} />
-            <Route path="review" element={<div>This is review page</div>} />
+            <Route path="/aboutus" element={<div>This is about us page</div>} />
           </Routes>
         </div>
       </ChakraProvider>
