@@ -29,6 +29,9 @@ app.use("/api/", messageRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/chat", chatRoutes);
+api.get('/', (req,res) => {
+	res.send("Hello world")
+})
 
 io.on("connection", (socket) => {
   socket.on("new-message", (data) => {
