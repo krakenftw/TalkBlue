@@ -34,7 +34,6 @@ import ProfileModal from "../misc/ProfileModal";
 import axios from "../axios.js";
 import Loading from "../misc/Loading";
 import UserListSystem from "./UserListSystem";
-import { chatModel } from "../../../../api/schema/chats";
 import { ArrowDown, Bell, Search } from "lucide-react";
 
 function SideBar() {

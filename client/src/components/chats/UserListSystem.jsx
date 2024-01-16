@@ -1,6 +1,5 @@
 import { Avatar, Box, Text } from "@chakra-ui/react";
 import React from "react";
-import { userModel } from "../../../../api/schema/user";
 
 function UserListSystem({ each, handleUserChat }) {
   return (
