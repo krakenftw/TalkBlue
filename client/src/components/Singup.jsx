@@ -9,7 +9,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import axios from "axios";
+import axios from "../axios.js";
 const Singup = () => {
   const [show, setShow] = useState(false);
   const [username, setUsername] = useState("");
@@ -24,13 +24,7 @@ const Singup = () => {
   const [showPass, setShowPass] = useState(false);
   const registerHandle = () => {
     setLoading(true);
-    if (
-      !username ||
-      !password ||
-      !confirmPassword ||
-      !name ||
-      !email
-    ) {
+    if (!username || !password || !confirmPassword || !name || !email) {
       return toast({
         status: "error",
         description: "No fields should be empty!",
@@ -90,13 +84,9 @@ const Singup = () => {
       data.append("upload_preset", "chattis");
       data.append("file", pic);
       axios
-        .post(
-          "https://api.cloudinary.com/v1_1/djxwdmrmf/image/upload",
-          data,
-          {
-            headers,
-          }
-        )
+        .post("https://api.cloudinary.com/v1_1/djxwdmrmf/image/upload", data, {
+          headers,
+        })
         .then((res) => {
           setPic(res.data.url);
           toast({ description: "Image Uploaded", status: "success" });
@@ -106,8 +96,7 @@ const Singup = () => {
           console.log(err);
           toast({
             status: "error",
-            description:
-              "An error occured while uploading profile picture.",
+            description: "An error occured while uploading profile picture.",
           });
           setLoading(false);
         });
@@ -123,68 +112,68 @@ const Singup = () => {
   return (
     <div>
       <Box
-        w='100%'
-        d='flex'
-        justifyContent='center'
-        alignItems='center'
-        alignContent='center'
-        textAlign='center'
+        w="100%"
+        d="flex"
+        justifyContent="center"
+        alignItems="center"
+        alignContent="center"
+        textAlign="center"
       >
         <Input
           value={name}
-          type='text'
-          placeholder='name'
+          type="text"
+          placeholder="name"
           onChange={(e) => {
             setName(e.target.value);
           }}
           color={"white"}
-          className='mb-3'
+          className="mb-3"
         />
         <Input
           value={username}
-          type='text'
-          placeholder='username'
+          type="text"
+          placeholder="username"
           color={"white"}
           onChange={(e) => {
             setUsername(e.target.value);
           }}
-          className='mb-3'
+          className="mb-3"
         />
         <Input
           value={email}
-          type='email'
-          placeholder='email'
+          type="email"
+          placeholder="email"
           color={"white"}
           onChange={(e) => {
             setEmail(e.target.value);
           }}
-          className='mb-3'
+          className="mb-3"
         />
         <Input
           value={password}
           type={showPass ? "string" : "password"}
-          placeholder='password'
+          placeholder="password"
           color={"white"}
           onChange={(e) => {
             setPassword(e.target.value);
           }}
-          className='mb-3'
+          className="mb-3"
           border={passwordMatch ? "1px solid white" : "1px solid red"}
         />
         <Input
           value={confirmPassword}
           type={showPass ? "string" : "password"}
-          placeholder='confirm Password'
+          placeholder="confirm Password"
           color={"white"}
           onChange={(e) => {
             setConfirmPassword(e.target.value);
           }}
-          className='mb-3'
+          className="mb-3"
           border={passwordMatch ? "1px solid white" : "1px solid red"}
         />
         <Checkbox
-          className='mb-3'
-          color='white'
+          className="mb-3"
+          color="white"
           onChange={(e) => {
             e.target.checked ? setShowPass(true) : setShowPass(false);
           }}
@@ -193,23 +182,23 @@ const Singup = () => {
         </Checkbox>
         <br />
         <FormLabel
-          htmlFor='file'
+          htmlFor="file"
           disabled={loading ? true : false}
           border={"1px solid white"}
           color={"white"}
           display={"flex"}
           justifyContent={"center"}
           borderRadius={"md"}
-          p='10px'
-          w='100%'
+          p="10px"
+          w="100%"
         >
           Upload Profile Picture
           <Input
-            id='file'
-            type='file'
+            id="file"
+            type="file"
             border={"0"}
             width={"auto"}
-            className='mb-3'
+            className="mb-3"
             size={"lg"}
             onChange={handleFileUpload}
             display={"none"}
@@ -217,10 +206,10 @@ const Singup = () => {
         </FormLabel>
 
         <Button
-          width='100%'
+          width="100%"
           disabled={loading}
-          colorScheme='black'
-          variant='outline'
+          colorScheme="black"
+          variant="outline"
           onClick={registerHandle}
           border={"1px solid white"}
           color={"white"}

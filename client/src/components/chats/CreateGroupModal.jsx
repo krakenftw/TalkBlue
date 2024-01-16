@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useChatState } from "../../context/ChatProvider";
-import axios from "axios";
+import axios from "../axios.js";
 import UserListSystem from "./UserListSystem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -43,7 +43,7 @@ function CreateGroupModal({ onOpen, isOpen, onClose }) {
     axios
       .get(`/api/user/search?search=${e.target.value}`, config)
       .then((res) => {
-				console.log(res.data)
+        console.log(res.data);
         setSearchResult(res.data);
         setLoading(false);
       })
@@ -85,7 +85,9 @@ function CreateGroupModal({ onOpen, isOpen, onClose }) {
         config
       )
       .then((res) => {
-        setChats((chats) => chats ? [...chats, res.data] : [res.data]);
+        setChats((chats) =>
+          chats ? [...chats, res.data] : [res.data]
+        );
         setSelectedChat(res.data);
         onClose();
       })
@@ -158,10 +160,9 @@ function CreateGroupModal({ onOpen, isOpen, onClose }) {
                         margin='0px 5px'
                       />
                       <Box>
-											<Text fontSize='sm'>
-
+                        <Text fontSize='sm'>
                           <b>UserName : </b> {each.username}
-											</Text>
+                        </Text>
                         <Text fontSize='sm'>
                           <b>Name : </b> {each.name}
                         </Text>

@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useChatState } from "../../context/ChatProvider";
-import axios from "axios";
+import axios from "../axios.js";
 import Loading from "../misc/Loading";
 import ChatCard from "./ChatCard";
 import CreateGroupModal from "./CreateGroupModal";
@@ -53,24 +53,24 @@ function MyChats() {
           md: "flex",
           sm: "none",
         }}
-        flexDirection='column'
+        flexDirection="column"
         w={{ base: "100%", md: "31%" }}
-        m='0'
-        backgroundColor='white'
-        borderRadius='xl'
-        p='5px 10px'
+        m="0"
+        backgroundColor="white"
+        borderRadius="xl"
+        p="5px 10px"
       >
         <Box
-          display='flex'
-          justifyContent='space-between'
-          alignItems='center'
-          m='10px 0px 20px 0px'
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          m="10px 0px 20px 0px"
         >
           <Button onClick={onOpen}>New Group Chat</Button>
         </Box>
-        <Box display='flex' flexDirection='column'>
+        <Box display="flex" flexDirection="column">
           {!loading ? (
-            <Stack overflowY='scroll'>
+            <Stack overflowY="scroll">
               {chats?.map((chat) => (
                 <ChatCard
                   chat={chat}
@@ -84,11 +84,7 @@ function MyChats() {
           )}
         </Box>
       </Box>
-      <CreateGroupModal
-        onOpen={onOpen}
-        isOpen={isOpen}
-        onClose={onClose}
-      />
+      <CreateGroupModal onOpen={onOpen} isOpen={isOpen} onClose={onClose} />
     </>
   );
 }

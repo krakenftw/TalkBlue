@@ -31,7 +31,7 @@ import {
 import { useChatState } from "../../context/ChatProvider";
 import { useNavigate } from "react-router-dom";
 import ProfileModal from "../misc/ProfileModal";
-import axios from "axios";
+import axios from "../axios.js";
 import Loading from "../misc/Loading";
 import UserListSystem from "./UserListSystem";
 import { chatModel } from "../../../../api/schema/chats";
