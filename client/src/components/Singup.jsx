@@ -10,6 +10,8 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from "../axios";
+import DefaultAxios from "axios"
+
 const Singup = () => {
   const [show, setShow] = useState(false);
   const [username, setUsername] = useState("");
@@ -83,7 +85,7 @@ const Singup = () => {
       const data = new FormData();
       data.append("upload_preset", "chattis");
       data.append("file", pic);
-      axios
+      DefaultAxios
         .post("https://api.cloudinary.com/v1_1/djxwdmrmf/image/upload", data, {
           headers,
         })
