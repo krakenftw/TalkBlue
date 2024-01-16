@@ -23,7 +23,12 @@ const io = new Server(server, {
   },
 });
 
-app.use(cors({ origin: "https://talkblue-client-production.up.railway.app" }));
+app.use(
+  cors({
+    origin: "https://talkblue-client-production.up.railway.app",
+    methods: ["GET", "POST"],
+  }),
+);
 
 dotenv.config();
 
