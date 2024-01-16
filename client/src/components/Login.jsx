@@ -15,7 +15,7 @@ const Login = () => {
   const handleLogin = () => {
     setLoading(true);
     axios
-      .post("/api/user/login", {
+      .post("api/user/login", {
         username,
         password,
       })
