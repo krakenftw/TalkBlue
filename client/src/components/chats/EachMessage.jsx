@@ -13,19 +13,18 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { useChatState } from "../../context/ChatProvider";
-import {
-  DeleteIcon,
-  EditIcon,
-  MoreVertical,
-  TrashIcon,
-} from "lucide-react";
+import { DeleteIcon, EditIcon, MoreVertical, TrashIcon } from "lucide-react";
 import { socket } from "../../socket";
 
 import axios from "../../axios";
 
 function EachMessage({ message, setMessages }) {
   const { user } = useChatState();
-
+  const Hours = new Date(message.createdAt).toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  });
   const handleMessageDelete = () => {
     axios
       .delete("/api/messages/message/delete", {
@@ -44,7 +43,6 @@ function EachMessage({ message, setMessages }) {
       .catch((e) => console.error(e));
   };
   const handleEditMessage = () => {
-    //TODO: implement this
     console.log("Send api req");
   };
   return (
@@ -62,6 +60,7 @@ function EachMessage({ message, setMessages }) {
           borderRadius={"lg"}
           padding={"2"}
           w={"auto"}
+          className="flex"
           margin={
             message.sender._id === user._id
               ? "2px 2px 2px auto"
@@ -69,43 +68,8 @@ function EachMessage({ message, setMessages }) {
           }
         >
           {message.content}
+          <Text className="mx-1 p-0 text-right text-[10px] mt-2">{Hours}</Text>
         </Text>
-        {message.sender._id === user._id && (
-          <Popover>
-            <PopoverTrigger>
-              <Button>
-                <MoreVertical />
-              </Button>
-            </PopoverTrigger>
-            <Portal>
-              <PopoverContent>
-                <PopoverArrow />
-                <PopoverBody>
-                  <Stack>
-                    <Button
-                      onClick={handleMessageDelete}
-                      size="sm"
-                      leftIcon={<TrashIcon />}
-                      color="red.400"
-                      variant="ghost"
-                    >
-                      Delete
-                    </Button>
-                    <Button
-                      onClick={handleEditMessage}
-                      size="sm"
-                      leftIcon={<EditIcon />}
-                      color="blue.400"
-                      variant="ghost"
-                    >
-                      Edit
-                    </Button>
-                  </Stack>
-                </PopoverBody>
-              </PopoverContent>
-            </Portal>
-          </Popover>
-        )}
       </Box>
     </Box>
   );

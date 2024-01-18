@@ -8,29 +8,29 @@ import {
   Tabs,
   Text,
 } from "@chakra-ui/react";
-import Login from "./Login";
+import Login from "./login/Login";
 import Singup from "./Singup";
 
 const Homepage = () => {
   return (
     <div>
-      <Container maxW='4xl' centerContent>
+      <Container maxW="4xl" centerContent>
         <Box
-          d='flex'
-          justifyContent='center'
-          border-width='2'
-          border-radius='xl'
-          m='2rem 0'
+          d="flex"
+          justifyContent="center"
+          border-width="2"
+          border-radius="xl"
+          m="2rem 0"
         >
-          <Text className='text-4xl' size='xl' color={"white"}>
+          <Text className="text-4xl" size="xl" color={"white"}>
             CHATTIS
           </Text>
         </Box>
         <Box width={{ base: "90%", md: "75%" }}>
-          <Tabs size='md' defaultIndex={0} variant='soft-rounded'>
-            <TabList p='1rem'>
+          <Tabs size="md" defaultIndex={0} variant="soft-rounded">
+            <TabList p="1rem">
               <Tab
-                width='100%'
+                width="100%"
                 border={"1px solid gray"}
                 color={"grey"}
                 _selected={{
@@ -43,7 +43,7 @@ const Homepage = () => {
                 Login
               </Tab>
               <Tab
-                width='100%'
+                width="100%"
                 border={"1px solid gray"}
                 color={"grey"}
                 _selected={{
