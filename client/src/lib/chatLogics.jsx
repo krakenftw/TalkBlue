@@ -6,7 +6,7 @@ export function getOtherUser(user, usersArray) {
   return filteredArray[0];
 }
 
-const handleMessageDelete = (message, setMessages, user) => {
+export const handleMessageDelete = (message, setMessages, user) => {
   axios
     .delete("/api/messages/message/delete", {
       data: {

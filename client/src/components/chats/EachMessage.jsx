@@ -1,16 +1,12 @@
-import { Text, Box, Avatar } from "@chakra-ui/react";
+import { Text, Box } from "@chakra-ui/react";
 import { useChatState } from "../../context/ChatProvider";
-import { socket } from "../../socket";
-
-import axios from "../../axios";
 import { useState } from "react";
-import { ArrowUp } from "lucide-react";
-import { ChevronDown } from "lucide-react";
 import HoverOptions from "./message/HoverOptions";
 
 function EachMessage({ message, setMessages }) {
   const [ArrowHover, setArrowHover] = useState(false);
   const { user } = useChatState();
+
   const Hours = new Date(message.createdAt).toLocaleTimeString("en-US", {
     hour: "numeric",
     minute: "numeric",
